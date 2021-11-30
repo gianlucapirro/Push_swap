@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   actions.h                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: gianlucapirro <gianlucapirro@student.42      +#+                     */
+/*   By: gpirro <gpirro@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/29 12:20:25 by gianlucapir   #+#    #+#                 */
-/*   Updated: 2021/11/30 15:24:23 by gpirro        ########   odam.nl         */
+/*   Created: 2021/11/30 15:22:03 by gpirro        #+#    #+#                 */
+/*   Updated: 2021/11/30 16:22:23 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef ACTIONS_H
+# define ACTIONS_H
 
-# include <stdio.h>
-# include "libft/libft.h"
-# include "list/list.h"
-# include "actions/actions.h"
+# include "../push_swap.h"
 
-int     input_checker(char *argv[]);
-t_list	*input_to_linked_list(char *argv[], t_list *a);
+void	swap_top(t_list *stack);
+void	swap_both(t_list *a, t_list *b);
 
 #endif
