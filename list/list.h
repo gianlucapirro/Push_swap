@@ -14,6 +14,7 @@ typedef struct s_list {
 	int				data;
 }	t_list;
 
+int		list_len(t_list	*list);
 t_list	*list_init(void);
 void	free_list(t_list *list, int free_data);
 void	*list_add(t_list *list, int data);

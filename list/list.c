@@ -6,7 +6,7 @@
 /*   By: jsiegers <jsiegers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 17:09:12 by jsiegers      #+#    #+#                 */
-/*   Updated: 2021/11/30 17:18:20 by gpirro        ########   odam.nl         */
+/*   Updated: 2021/12/01 15:55:16 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	*list_add(t_list *list, int data)
 			tmp = tmp->next;
 		tmp->next = new_elem;
 	}
-	return (0);
+	return (new_elem);
 }
 
 int	list_len(t_list	*list)
