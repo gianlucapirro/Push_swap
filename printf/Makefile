@@ -1,0 +1,51 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: gpirro <gpirro@student.codam.nl>             +#+                      #
+#                                                    +#+                       #
+#    Created: 2021/10/22 14:28:23 by gpirro        #+#    #+#                  #
+#    Updated: 2021/10/22 14:56:04 by gpirro        ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS =	conversions/int_to_hex.c\
+		conversions/void_to_hex.c\
+		srcs/ft_printf.c\
+		tools/ft_putchar.c\
+		tools/ft_putnbr.c\
+		tools/ft_putnbru.c\
+		tools/ft_putstr.c\
+		tools/ft_rev_int_tab.c\
+		tools/ft_strlen.c\
+		tools/ft_strlowcase.c\
+	
+OBJS =	int_to_hex.o\
+		void_to_hex.o\
+		ft_printf.o\
+		ft_putchar.o\
+		ft_putnbr.o\
+		ft_putnbru.o\
+		ft_putstr.o\
+		ft_rev_int_tab.o\
+		ft_strlen.o\
+		ft_strlowcase.o\
+
+NAME = libftprintf.a
+
+${NAME}:
+	gcc -Wall -Wextra -Werror -c ${SRCS}
+	ar rc ${NAME} ${OBJS}
+
+all: ${NAME}
+
+clean:
+	rm -f ${OBJS}
+
+fclean: clean
+	rm -f ${NAME}
+
+re: fclean all
+
+.PHONY: all clean fclean re .c.o norm

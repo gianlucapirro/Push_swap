@@ -1,5 +1,6 @@
 SRC		=	handle_input.c\
-	 		push_swap.c
+	 		push_swap.c\
+			sorting.c
 LIBFT 	=	libft/ft_atoi.c\
 	 		libft/ft_isalnum.c\
 	 		libft/ft_isdigit.c\
@@ -36,9 +37,16 @@ LIBFT 	=	libft/ft_atoi.c\
 	 		libft/ft_tolower.c
 LIST	=	list/list.c
 ACTIONS	=	actions/actions.c
-
-
-COMB	=	${SRC} ${LIBFT} ${LIST} ${ACTIONS}
+PRINTF	=	printf/conversions/int_to_hex.c\
+			printf/conversions/void_to_hex.c\
+			printf/srcs/ft_printf.c\
+			printf/tools/ft_putchar.c\
+			printf/tools/ft_putnbr.c\
+			printf/tools/ft_putnbru.c\
+			printf/tools/ft_putstr.c\
+			printf/tools/ft_rev_int_tab.c\
+			printf/tools/ft_strlowcase.c
+COMB	=	${SRC} ${LIBFT} ${LIST} ${ACTIONS} ${PRINTF}
 OBJS	=	${COMB:.c=.o}
 NAME	=	push_swap
 

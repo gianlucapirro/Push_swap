@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   push_swap.c                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: gianlucapirro <gianlucapirro@student.42      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/11/29 12:21:31 by gianlucapir   #+#    #+#                 */
-/*   Updated: 2021/12/01 16:53:30 by gpirro        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/29 12:21:31 by gianlucapir       #+#    #+#             */
+/*   Updated: 2021/12/03 12:36:52 by gianlucapir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,5 @@ int main(int argc, char *argv[])
 	a = list_init();
 	handle_errors(argc, argv);
 	input_to_linked_list(argv, a);
-	while (a->next)
-	{
-		printf("%i\n", a->data);
-		a = a->next;
-	}
-	printf("%i\n", a->data);
+	sort_three(a);
 }

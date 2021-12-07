@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   int_to_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 12:20:25 by gianlucapir       #+#    #+#             */
-/*   Updated: 2021/12/03 12:18:11 by gianlucapir      ###   ########.fr       */
+/*   Created: 2021/10/19 18:07:13 by gianlucapir       #+#    #+#             */
+/*   Updated: 2021/10/20 13:44:26 by gianlucapir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/ft_printf.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-# include "list/list.h"
-# include "actions/actions.h"
-# include "printf/includes/ft_printf.h"
+char	*int_to_hex(int number)
+{
+	char	*new;
+	int		temp;
+	int		i;
 
-int     input_checker(char *argv[]);
-t_list	*input_to_linked_list(char *argv[], t_list *a);
-int		check_sorted(t_list *a);
-void	sort_three(t_list *a);
-
-#endif
+	new = (char *)malloc(sizeof(char) * 10);
+	if (!new)
+		return (0);
+	i = 0;
+	while (number != 0)
+	{
+		temp = 0;
+		temp = number % 16;
+		if (temp < 10)
+			new[i++] = temp + 48;
+		else
+			new[i++] = temp + 55;
+		number /= 16;
+	}
+	ft_rev_int_tab(new, ft_strlen(new));
+	return (new);
+}

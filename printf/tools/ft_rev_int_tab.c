@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 12:20:25 by gianlucapir       #+#    #+#             */
-/*   Updated: 2021/12/03 12:18:11 by gianlucapir      ###   ########.fr       */
+/*   Created: 2021/07/11 13:58:30 by gpirro            #+#    #+#             */
+/*   Updated: 2021/10/19 18:02:25 by gianlucapir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <unistd.h>
 
-# include <stdio.h>
-# include "libft/libft.h"
-# include "list/list.h"
-# include "actions/actions.h"
-# include "printf/includes/ft_printf.h"
+void	ft_swap(char *a, char *b)
+{
+	int	swap;
 
-int     input_checker(char *argv[]);
-t_list	*input_to_linked_list(char *argv[], t_list *a);
-int		check_sorted(t_list *a);
-void	sort_three(t_list *a);
+	swap = *a;
+	*a = *b;
+	*b = swap;
+}
 
-#endif
+void	ft_rev_int_tab(char *tab, int size)
+{
+	int	count;
+
+	count = 0;
+	while (count < size)
+	{
+		ft_swap(&tab[count], &tab[size - 1]);
+		count ++;
+		size --;
+	}
+}
