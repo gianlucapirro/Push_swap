@@ -1,6 +1,6 @@
 SRC		=	handle_input.c\
 	 		push_swap.c\
-			sorting.c
+			sort_small.c
 LIBFT 	=	libft/ft_atoi.c\
 	 		libft/ft_isalnum.c\
 	 		libft/ft_isdigit.c\
@@ -35,8 +35,10 @@ LIBFT 	=	libft/ft_atoi.c\
 	 		libft/ft_strmapi.c\
 	 		libft/ft_strrchr.c\
 	 		libft/ft_tolower.c
-LIST	=	list/list.c
-ACTIONS	=	actions/actions.c
+LIST	=	list/list.c\
+			list/list2.c
+ACTIONS	=	actions/actions.c\
+			actions/actions2.c
 PRINTF	=	printf/conversions/int_to_hex.c\
 			printf/conversions/void_to_hex.c\
 			printf/srcs/ft_printf.c\

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    makefile                                           :+:    :+:             #
+#    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: gpirro <gpirro@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/10/22 14:28:23 by gpirro        #+#    #+#                  #
-#    Updated: 2021/10/22 14:56:04 by gpirro        ########   odam.nl          #
+#    Updated: 2021/10/28 11:33:39 by gpirro        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS =	conversions/int_to_hex.c\
 		tools/ft_rev_int_tab.c\
 		tools/ft_strlen.c\
 		tools/ft_strlowcase.c\
+		tools/ft_calloc.c\
+		tools/ft_memset.c
 	
 OBJS =	int_to_hex.o\
 		void_to_hex.o\
@@ -31,6 +33,8 @@ OBJS =	int_to_hex.o\
 		ft_rev_int_tab.o\
 		ft_strlen.o\
 		ft_strlowcase.o\
+		ft_calloc.o\
+		ft_memset.o
 
 NAME = libftprintf.a
 

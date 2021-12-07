@@ -6,20 +6,20 @@
 /*   By: gianlucapirro <gianlucapirro@student.42      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/29 12:21:50 by gianlucapir   #+#    #+#                 */
-/*   Updated: 2021/12/01 17:07:34 by gpirro        ########   odam.nl         */
+/*   Updated: 2021/12/07 13:23:03 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int length_input(char *argv[])
+static int	length_input(char *argv[])
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	while (argv[i])
 		i++;
-	return (i - 1);	
+	return (i - 1);
 }
 
 static int	max_int_error(char	*num)
@@ -45,11 +45,12 @@ int	input_checker(char *argv[])
 	while (argv[i])
 	{
 		if (max_int_error(argv[i]))
-			return (write(2, "One of the arguments is bigger than an integer\n", 48));
+			return (write(2, "One of the arguments is \
+			bigger than an integer\n", 48));
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((argv[i][j] > 57 && argv[i][j] != 45) ||\
+			if ((argv[i][j] > 57 && argv[i][j] != 45) || \
 			(argv[i][j] < 48 && argv[i][j] != 45))
 				return (write(2, "Some arguments are not integers\n", 33));
 			j++;
@@ -59,12 +60,11 @@ int	input_checker(char *argv[])
 	return (0);
 }
 
-
 t_list	*input_to_linked_list(char *argv[], t_list *a)
 {
-	int i;
+	int	i;
 	int	len;
-	
+
 	len = length_input(argv);
 	a->data = ft_atoi(argv[1]);
 	i = 1;

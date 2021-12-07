@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 18:07:52 by gianlucapir       #+#    #+#             */
-/*   Updated: 2021/12/03 12:41:26 by gianlucapir      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   sort_small.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: gianlucapirro <gianlucapirro@student.42      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/12/01 18:07:52 by gianlucapir   #+#    #+#                 */
+/*   Updated: 2021/12/07 15:32:31 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,11 @@ void	sort_three(t_list *a)
 	}
 }
 
+void	*sort_four(t_list *a, t_list *b)
+{
+	a = push_top(a, &b);
+	sort_three(a);
+	if (a->data < b->data)
+		push_top(b, &a);	
+	return (a);
+}

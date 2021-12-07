@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr.c                                        :+:    :+:            */
+/*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: gpirro <gpirro@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/07/16 11:28:18 by gpirro        #+#    #+#                 */
-/*   Updated: 2021/10/28 11:29:30 by gpirro        ########   odam.nl         */
+/*   Created: 2021/10/06 11:06:17 by gpirro        #+#    #+#                 */
+/*   Updated: 2021/10/28 11:30:42 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_putstr(char *str, int should_i_free)
+char	*ft_memset(void *string, int character, int len)
 {
-	int	i;
+	int		i;
+	char	*return_val;
 
 	i = 0;
-	if (str == 0)
-		return (write(1, "(null)", 6));
-	while (str[i])
+	return_val = (char *)string;
+	while (i < len)
 	{
-		write(1, str + i, 1);
+		return_val[i] = character;
 		i++;
 	}
-	if (should_i_free)
-		free(str);
-	return (i);
+	return (return_val);
 }

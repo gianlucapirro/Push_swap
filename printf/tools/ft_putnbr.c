@@ -6,7 +6,7 @@
 /*   By: gianlucapirro <gianlucapirro@student.42      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/20 09:46:03 by gpirro        #+#    #+#                 */
-/*   Updated: 2021/10/22 13:57:47 by gpirro        ########   odam.nl         */
+/*   Updated: 2021/10/29 11:16:19 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ int	ft_putnbr(int nb, int i)
 	}
 	else
 		ft_putchar(nb + '0');
-		return (i);
+	return (i);
 }
-

@@ -12,8 +12,9 @@
 
 #include "../includes/ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
-static int	check_format(va_list args, char *string, int i, int retval)
+int	check_format(va_list args, char *string, int i, int retval)
 {
 	int		p;
 	char	*s;
@@ -28,7 +29,7 @@ static int	check_format(va_list args, char *string, int i, int retval)
 	else if (string[i] == 's')
 		retval = ft_putstr(s, 0);
 	else if (string[i] == 'p')
-		retval = ft_putstr(strlowcase(void_to_hex(s)), 1);
+		retval = ft_putstr(strlowcase(void_to_hex(s, 0)), 1);
 	else if (string[i] == 'u')
 		retval = ft_putnbru(p, 1);
 	else if (string[i] == 'd' || string[i] == 'i')
