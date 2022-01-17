@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                        :::      ::::::::   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,6 +23,8 @@ int		input_checker(char *argv[]);
 t_list	*input_to_linked_list(char *argv[], t_list *a);
 int		check_sorted(t_list *a);
 void	*sort_three(t_list *a);
-void	*sort_four(t_list *a, t_list *b);
+t_list	*sort_four(t_list *a, t_list *b);
+t_list	*sort_five(t_list *a, t_list *b);
+void	printlist(t_list *l);
 
 #endif

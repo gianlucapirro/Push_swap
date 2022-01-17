@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   list.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: jsiegers <jsiegers@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/11/02 17:09:12 by jsiegers      #+#    #+#                 */
-/*   Updated: 2021/12/07 13:26:04 by gpirro        ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   list.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 17:09:12 by jsiegers          #+#    #+#             */
+/*   Updated: 2022/01/17 11:15:12 by gianlucapir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_list	*list_init(void)
 	list = malloc(sizeof(t_list));
 	if (list == 0)
 		return (0);
-	list->next = 0;
 	return (list);
 }
 

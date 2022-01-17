@@ -6,7 +6,7 @@
 /*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:21:31 by gianlucapir       #+#    #+#             */
-/*   Updated: 2021/12/07 21:33:50 by gianlucapir      ###   ########.fr       */
+/*   Updated: 2022/01/17 11:23:43 by gianlucapir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ static int	handle_errors(int argc, char *argv[])
 	return (0);
 }
 
+void	printlist(t_list *l)
+{
+	while (l->next)
+	{
+		printf("%i\n", l->data);
+		l = l->next;
+	}
+	printf("%i\n", l->data);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_list	*a;
@@ -31,13 +41,13 @@ int	main(int argc, char *argv[])
 		exit (0);
 	a = list_init();
 	b = list_init();
-	handle_errors(argc, argv);
-	input_to_linked_list(argv, a);
-	a = sort_four(a, b);
-	while (a->next)
-	{
-		printf("%i\n", a->data);
-		a = a->next;
-	}
-	printf("%i\n", a->data);
+	a->data = 10;
+	// handle_errors(argc, argv);
+	// a = input_to_linked_list(argv, a);
+	// a = sort_four(a, b);
+	// push_top(a, &b, 1);
+	printlist(a);
+	pop(a);
+	printf("-------------\n");
+	printlist(a);
 }

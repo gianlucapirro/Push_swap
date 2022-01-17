@@ -17,7 +17,7 @@
 
 void	swap_top(t_list *stack, int print);
 void	swap_both(t_list *a, t_list *b);
-void	*push_top(t_list *stack1, t_list **stack2, int print);
+t_list	*push_top(t_list *stack1, t_list **stack2, int print);
 void	rotate_top(t_list *stack, int print);
 void	rotate_both(t_list *a, t_list *b);
 void	reverse_rotate(t_list **stack, int print);

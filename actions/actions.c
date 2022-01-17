@@ -20,10 +20,8 @@ void	swap_both(t_list *a, t_list *b)
 	ft_printf("SS\n");
 }
 
-void	*push_top(t_list *stack1, t_list **stack2, int print)
+t_list	*push_top(t_list *stack1, t_list **stack2, int print)
 {
-	if (stack1->next == 0)
-		return (NULL);
 	insert(stack2, stack1->data);
 	pop_i(&stack1, 0);
 	if (print == 0)
