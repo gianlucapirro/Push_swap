@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   actions2.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gianlucapirro <gianlucapirro@student.42    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 13:24:45 by gpirro            #+#    #+#             */
-/*   Updated: 2021/12/07 19:47:39 by gianlucapir      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   actions2.c                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: gpirro <gpirro@student.42.fr>                +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/12/07 13:24:45 by gpirro        #+#    #+#                 */
+/*   Updated: 2022/01/18 11:52:03 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void	rotate_top(t_list *stack, int print)
 	}
 	stack->data = first;
 	if (print == 0)
-		ft_printf("RA\n");
+		add_action(RA);
 	else if (print == 1)
-		ft_printf("RB\n");
+		add_action(RB);
 }
 
 void	rotate_both(t_list *a, t_list *b)
 {
 	rotate_top(a, 2);
 	rotate_top(b, 2);
-	ft_printf("RR\n");
+	add_action(RR);
 }
 
 void	reverse_rotate(t_list **stack, int print)
@@ -50,9 +50,9 @@ void	reverse_rotate(t_list **stack, int print)
 	insert(stack, last);
 	pop((*stack));
 	if (print == 0)
-		ft_printf("RRA\n");
+		add_action(RRA);
 	else if (print == 1)
-		ft_printf("RRB\n");
+		add_action(RRB);
 	return ;
 }
 
@@ -60,5 +60,5 @@ void	reverse_both(t_list **a, t_list **b)
 {
 	reverse_rotate(a, 2);
 	reverse_rotate(b, 2);
-	ft_printf("RRR\n");
+	add_action(RRR);
 }

@@ -6,7 +6,7 @@
 /*   By: gpirro <gpirro@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/07 13:26:09 by gpirro        #+#    #+#                 */
-/*   Updated: 2021/12/07 13:27:31 by gpirro        ########   odam.nl         */
+/*   Updated: 2022/01/17 13:42:36 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,58 +84,3 @@ int	insert(t_list **head, int new_data)
 	(*head) = new_node;
 	return (new_node->data);
 }
-
-// void	*insert_i(t_list *list, void *data, int i)
-// {
-// 	t_list	*elem;
-// 	t_list	*tmp;
-// 	int		p;
-
-// 	if (list->len >= i)
-// 		return (0);
-// 	elem = malloc(sizeof(t_list));
-// 	if (elem == 0)
-// 		return (0);
-// 	elem->data = data;
-// 	if (list->next == 0)
-// 	{
-// 		elem->next = 0;
-// 		elem->prev = 0;
-// 		list->next = elem;
-// 		return (data);
-// 	}
-// 	p = 0;
-// 	tmp = list->next;
-// 	while (p++ < i)
-// 		tmp = tmp->next;
-// 	elem->next = tmp;
-// 	elem->prev = tmp->prev;
-// 	tmp->prev = elem;
-// 	if (p == 0)
-// 		list->next = elem;
-// 	return (data);
-// }
-
-// void	**list_to_array(t_list *list)
-// {
-// 	void	**res;
-// 	int		i;
-// 	t_list	*elem;
-
-// 	res = malloc(sizeof(void *) * list->len);
-// 	if (res == 0)
-// 	{
-// 		free_list(list, 1);
-// 		return (0);
-// 	}
-// 	i = 0;
-// 	elem = list->next;
-// 	while (elem)
-// 	{
-// 		res[i] = elem->data;
-// 		elem = elem->next;
-// 		i++;
-// 	}
-// 	free_list(list, 0);
-// 	return (res);
-// }
