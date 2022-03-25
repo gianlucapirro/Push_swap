@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"push_swap.h": "c",
-		"cstdio": "c",
-		"actions.h": "c",
-		"ft_printf.h": "c"
-	}
-}
