@@ -1,74 +1,45 @@
-SRC		=	push_swap.c
-LIBFT 	=	libft/ft_atoi.c\
-	 		libft/ft_isalnum.c\
-	 		libft/ft_isdigit.c\
-	 		libft/ft_memchr.c\
-	 		libft/ft_memmove.c\
-	 		libft/ft_putendl_fd.c\
-	 		libft/ft_split.c\
-	 		libft/ft_striteri.c\
-	 		libft/ft_strlcpy.c\
-	 		libft/ft_strncmp.c\
-	 		libft/ft_strtrim.c\
-	 		libft/ft_toupper.c\
-	 		libft/ft_bzero.c\
-	 		libft/ft_isalpha.c\
-	 		libft/ft_isprint.c\
-	 		libft/ft_memcmp.c\
-	 		libft/ft_memset.c\
-	 		libft/ft_putnbr_fd.c\
-	 		libft/ft_strchr.c\
-	 		libft/ft_strjoin.c\
-	 		libft/ft_strlen.c\
-	 		libft/ft_strnstr.c\
-	 		libft/ft_substr.c\
-	 		libft/ft_calloc.c\
-	 		libft/ft_isascii.c\
-	 		libft/ft_itoa.c\
-	 		libft/ft_memcpy.c\
-	 		libft/ft_putchar_fd.c\
-	 		libft/ft_putstr_fd.c\
-	 		libft/ft_strdup.c\
-	 		libft/ft_strlcat.c\
-	 		libft/ft_strmapi.c\
-	 		libft/ft_strrchr.c\
-	 		libft/ft_tolower.c
-LIST	=	list/list.c\
-			list/list2.c
-ACTIONS	=	actions/actions.c\
-			actions/actions2.c
-PRINTF	=	printf/conversions/int_to_hex.c\
-			printf/conversions/void_to_hex.c\
-			printf/srcs/ft_printf.c\
-			printf/tools/ft_putchar.c\
-			printf/tools/ft_putnbr.c\
-			printf/tools/ft_putnbru.c\
-			printf/tools/ft_putstr.c\
-			printf/tools/ft_rev_int_tab.c\
-			printf/tools/ft_strlowcase.c
-SORTING	=	sorting/sort_small.c\
-			sorting/sort_big.c
-INPUT	=	input/input.c\
-			input/handle_input.c
-PRINT	=	print/print.c
-COMB	=	${SRC} ${LIBFT} ${LIST} ${ACTIONS} ${PRINTF} ${INPUT} ${SORTING} ${PRINT}
-OBJS	=	${COMB:.c=.o}
-NAME	=	push_swap
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: gpirro <gpirro@student.42.fr>                +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/03/25 10:42:17 by gpirro        #+#    #+#                  #
+#    Updated: 2022/03/25 10:42:19 by gpirro        ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
 
-.c.o:
-	gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+NAME =			push_swap
+VPATH =			./src/ ./include/ ./sorting/ ./utils/ ./parsing/
+SRCS = 			push_swap.c\
+				parsing.c\
+				exit.c\
+				bubblesort.c\
+				actions.c\
+				sort_small.c\
+				radix.c
+INCL_DIR		= ./include/
+OBJS			= $(SRCS:.c=.o)
+CFLAGS			= -Wall -Wextra -I$(INCL_DIR)
+LIBFT			= libft/libft.a
+CC				= gcc -g
 
-${NAME}: ${OBJS}
-	gcc -o $(NAME) ${OBJS}
+all:	$(NAME)
 
-all: ${NAME}
+$(NAME): $(LIBFT) $(OBJS)
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT}
+
+$(LIBFT):
+	make -C libft
 
 clean:
-	rm -f ${OBJS}
+	make clean -C libft
+	rm -f $(OBJS)
 
-fclean: clean
-	rm -f ${NAME}
+fclean:	clean
+	rm -f $(NAME) $(LIBFT)
 
-re: fclean all
+re:	fclean $(NAME)
 
-.PHONY: all clean fclean re .c.o
+.PHONY: all clean fclean re

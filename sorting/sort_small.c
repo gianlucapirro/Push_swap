@@ -5,112 +5,104 @@
 /*                                                     +:+                    */
 /*   By: gpirro <gpirro@student.42.fr>                +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/01 18:07:52 by gianlucapir   #+#    #+#                 */
-/*   Updated: 2022/01/18 13:26:23 by gpirro        ########   odam.nl         */
+/*   Created: 2022/03/22 10:08:05 by gianlucapir   #+#    #+#                 */
+/*   Updated: 2022/03/22 15:45:39 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	*sort_two(t_list *a)
+void	sort_two(t_stack *a)
 {
-	if (!check_sorted(a))
-		swap_top(a, A);
-	return (a);
+	if (!check_sorted(a->stack, a->top))
+		swap(a, SA);
 }
 
-void	*sort_three(t_list *a)
+void	sort_three(t_stack *a)
 {
-	const int	v1 = a->data;
-	const int	v2 = a->next->data;
-	const int	v3 = a->next->next->data;
+	const int	v1 = a->stack[a->top - 1];
+	const int	v2 = a->stack[a->top - 2];
+	const int	v3 = a->stack[a->top - 3];
 
-	if (v1 < v2 && v2 < v3)
-		return (a);
-	else if (v1 < v3 && v3 < v2)
+	if (!check_sorted(a->stack, a->top))
 	{
-		reverse_rotate(&a, A);
-		swap_top(a, A);
-	}
-	else if (v2 < v1 && v1 < v3)
-		swap_top(a, A);
-	else if (v3 < v1 && v1 < v2)
-		reverse_rotate(&a, A);
-	else if (v2 < v3 && v3 < v1)
-		rotate_top(a, A);
-	else
-	{
-		swap_top(a, A);
-		reverse_rotate(&a, A);
-	}
-	return (a);
-}
-
-t_list	*sort_four(t_list *a, t_list *b)
-{
-	int first_item;
-
-	if (check_sorted(a))
-		return (a);
-	a = push_top(a, &b, B);
-	first_item = b->data;
-	a = sort_three(a);
-	push_top(b, &a, A);
-	while (!check_sorted(a))
-	{
-		if (first_item < a->next->next->data)
-			swap_top(a, A);
-		else if (first_item < a->next->next->next->data)
+		if (v1 < v3 && v3 < v2)
 		{
-			reverse_rotate(&a, A);
-			swap_top(a, A);
-			rotate_top(a, A);
-			rotate_top(a, A);
+			r_rotate(a, RRA);
+			swap(a, SA);
 		}
+		else if (v2 < v1 && v1 < v3)
+			swap(a, SA);
+		else if (v3 < v1 && v1 < v2)
+			r_rotate(a, RRA);
+		else if (v2 < v3 && v3 < v1)
+			rotate(a, RA);
 		else
-			rotate_top(a, A);
+		{
+			swap(a, SA);
+			r_rotate(a, RRA);
+		}
 	}
-	return (a);
 }
 
-static int	find_lowest(t_list *stack, int *i)
+static int	find_lowest(t_stack *a, int *ind)
 {
 	int	lowest;
-	int	p;
+	int	i;
 
-	*i = 0;
-	p = 0;
-	lowest = stack->data;
-	while (stack)
+	i = a->top - 1;
+	lowest = a->stack[0];
+	while (i > 0)
 	{
-		if (lowest > stack->data)
+		if (lowest > a->stack[i])
 		{
-			lowest = stack->data;
-			(*i) = p;
+			lowest = a->stack[i];
+			(*ind) = i;
 		}
-		stack = stack->next;
-		p++;
+		i--;
 	}
 	return (lowest);
 }
 
-t_list	*sort_five(t_list *a, t_list *b)
+void	sort_four(t_stack *a, t_stack *b)
+{
+	int	lowest;
+	int	i;
+
+	i = 0;
+	lowest = find_lowest(a, &i);
+	while (lowest != a->stack[a->top - 1])
+	{
+		if (i < 2)
+			r_rotate(a, RRA);
+		else
+			rotate(a, RA);
+	}
+	if (!check_sorted(a->stack, a->top - 1))
+	{
+		push(a, b, PB);
+		sort_three(a);
+		push(b, a, PA);
+	}
+}
+
+void	sort_five(t_stack *a, t_stack *b)
 {
 	int	lowest;
 	int	i;
 
 	lowest = find_lowest(a, &i);
-	if (check_sorted(a))
-		return (a);
-	while (a->data != lowest)
+	while (a->stack[a->top - 1] != lowest)
 	{
 		if (i > 2)
-			reverse_rotate(&a, A);
+			r_rotate(a, RRA);
 		else
-			rotate_top(a, A);
+			rotate(a, RA);
 	}
-	a = push_top(a, &b, B);
-	a = sort_four(a, b);
-	push_top(b, &a, A);
-	return (a);
+	if (!check_sorted(a->stack, a->top))
+	{
+		push(a, b, PB);
+		sort_four(a, b);
+		push(b, a, PA);
+	}
 }
