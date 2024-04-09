@@ -6,7 +6,7 @@
 #    By: gpirro <gpirro@student.42.fr>                +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/25 10:42:17 by gpirro        #+#    #+#                  #
-#    Updated: 2022/03/25 10:42:19 by gpirro        ########   odam.nl          #
+#    Updated: 2022/03/28 13:56:31 by gpirro        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS = 			push_swap.c\
 				radix.c
 INCL_DIR		= ./include/
 OBJS			= $(SRCS:.c=.o)
-CFLAGS			= -Wall -Wextra -I$(INCL_DIR)
+CFLAGS			= -Wall -Wextra -Werror -I$(INCL_DIR)
 LIBFT			= libft/libft.a
 CC				= gcc -g
 
